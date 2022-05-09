@@ -1,14 +1,14 @@
 -- 1) Find all the matches from 2017.
 
---SELECT * FROM public.matches WHERE season = 2017;
+SELECT * FROM public.matches WHERE season = 2017;
 
 -- 2) Find all the matches featuring Barcelona.
 
---SELECT * FROM public.matches WHERE hometeam = 'Barcelona' OR awayteam = 'Barcelona';
+SELECT * FROM public.matches WHERE hometeam = 'Barcelona' OR awayteam = 'Barcelona';
 
 -- 3) What are the names of the Scottish divisions included?
 
---SELECT name FROM public.divisions WHERE country = 'Scotland';
+SELECT name FROM public.divisions WHERE country = 'Scotland';
 
 -- 4) Find the division code for the Bundesliga. Use that code to find out how many matches Freiburg have played in the Bundesliga since the data started being collected.
 
@@ -20,11 +20,16 @@ SELECT DISTINCT hometeam FROM public.matches WHERE hometeam LIKE '%City%';
 
 -- 6) How many different teams have played in matches recorded in a French division?
 
+--SELECT COUNT(DISTINCT hometeam) FROM public.matches WHERE division_code = (SELECT code FROM public.divisions WHERE country = 'France' );
+
+SELECT COUNT(DISTINCT hometeam) FROM public.matches WHERE division_code = 'F1' OR division_code = 'F2';
 
 -- 7) Have Huddersfield played Swansea in the period covered?
 
 
+
 -- 8) How many draws were there in the Eredivisie between 2010 and 2015?
+
 
 
 
